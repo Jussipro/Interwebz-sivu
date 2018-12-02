@@ -1,9 +1,11 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
     <title>Interwebz-sivu</title>
+    <meta name="description" content="Interwebz-sivu">
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8">
     <link rel="icon" href="pikachu.png">
     <link rel="stylesheet" href="stylesheet.css">
     <link ref="kuva" href="kuva.html">
@@ -21,6 +23,7 @@
         <div class="button" onclick="displayContent(1)">GIF</div>
         <div class="button" onclick="displayContent(2)">YOUTUBE 1</div>
         <div class="button" onclick="displayContent(3)">YOUTUBE 2</div>
+        <div class="button" onclick="displayContent(4)">LOCATION</div>
     </div>
     <div class="contentparent" id="sc"></div>
 </body>
@@ -35,6 +38,25 @@
             case 1: document.getElementById('sc').innerHTML = '<object style="width:500px; height:500px;" type="text/html" data="gif.html" ></object>'; break;
             case 2: document.getElementById('sc').innerHTML = '<object style="width:500px; height:500px;" type="text/html" data="youtube1.html" ></object>'; break;
             case 3: document.getElementById('sc').innerHTML = '<object style="width:500px; height:500px;" type="text/html" data="youtube2.html" ></object>'; break;
+            case 4: tryDisplayLocation(); break;
         }
     }
+
+    function tryDisplayLocation()
+    {
+        if (!navigator.geolocation)
+        {
+            document.getElementById('sc').innerHTML = "Geolocation is not supported by this browser.";
+            return;
+        }
+
+        navigator.geolocation.getCurrentPosition(displayLocation);
+    }
+
+    function displayLocation(position)
+    {
+        document.getElementById('sc').innerHTML = "Latitude: " + position.coords.latitude +
+            "<br>Longitude: " + position.coords.longitude;
+    }
+
 </script>
