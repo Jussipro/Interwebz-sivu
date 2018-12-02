@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Interwebz-sivu</title>
+    <link rel="icon" href="pikachu.png">
+    <link rel="stylesheet" href="stylesheet.css">
+    <link ref="kuva" href="kuva.html">
+    <link ref="gif" href="gif.html">
+    <link ref="youtube1" href="youtube1.html">
+    <link ref="youtube2" href="youtube2.html">
+</head>
+
+<body style="background-color:#000000;">
+    <div class="content">
+        <h1> <b>Interwebz-sivu</b> </h1>
+    </div>
+    <div class="buttonRow" style="margin-top:38px">
+        <div class="button" onclick="displayContent(0)">KUVA</div>
+        <div class="button" onclick="displayContent(1)">GIF</div>
+        <div class="button" onclick="displayContent(2)">YOUTUBE 1</div>
+        <div class="button" onclick="displayContent(3)">YOUTUBE 2</div>
+    </div>
+    <div class="contentparent" id="sc"></div>
+</body>
+</html>
+
+<script>
+    function displayContent(x)
+    {
+        switch (x)
+        {
+            case 0: document.getElementById('sc').innerHTML = '<object style="width:500px; height:500px;" type="text/html" data="kuva.html" ></object>'; break;
+            case 1: document.getElementById('sc').innerHTML = '<object style="width:500px; height:500px;" type="text/html" data="gif.html" ></object>'; break;
+            case 2: document.getElementById('sc').innerHTML = '<object style="width:500px; height:500px;" type="text/html" data="youtube1.html" ></object>'; break;
+            case 3: document.getElementById('sc').innerHTML = '<object style="width:500px; height:500px;" type="text/html" data="youtube2.html" ></object>'; break;
+        }
+    }
+</script>
